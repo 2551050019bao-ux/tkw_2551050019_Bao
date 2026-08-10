@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><link rel="stylesheet" href="./dist/output.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sổ Thu — Ghi thu chi mỗi ngày trong 10 giây</title>
+<meta name="description" content="Sổ Thu là SaaS ghi thu chi cho tiệm nhỏ: chốt sổ cuối ngày trong 1 phút, không cần biết kế toán." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- DEV/PREVIEW: dùng Tailwind Play CDN + assets/preview.css (bản CSS tay tương đương src/input.css)
+     vì môi trường build bài này không có mạng để chạy `npm run dev`.
+     Bản THẬT nộp bài là src/input.css — xem README mục "Cách chạy thật". -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { 600: '#2f6f4f', 700: '#24573d' },
+          accent: { 500: '#e2a33b' },
+          ink: '#14211c',
+          muted: '#5b6b64',
+          surface: { DEFAULT: '#ffffff', alt: '#f4f7f5' },
+          line: '#dfe6e1',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+          body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        borderRadius: { card: '0.875rem' },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="assets/preview.css" />
+</head>
+<body class="font-body text-ink bg-surface">
+
+<a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
+
+<!-- ============ NAVBAR (đã style — tiết 4) ============ -->
+<header class="border-b border-line">
+  <nav class="section !py-4 flex items-center justify-between" aria-label="Điều hướng chính">
+    <a href="#main" class="font-display text-xl font-semibold">Sổ Thu</a>
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <li><a href="#tinh-nang">Tính năng</a></li>
+      <li><a href="#bang-gia">Bảng giá</a></li>
+      <li><a href="#faq">Câu hỏi thường gặp</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-primary">Dùng thử miễn phí</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO (đã style — tiết 4) ============ -->
+  <section class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title" class="font-display text-4xl sm:text-5xl font-semibold leading-[1.08] tracking-tight">
+        Ghi thu chi mỗi ngày trong 10 giây, không cần biết kế toán.
+      </h1>
+      <p class="mt-5 text-lg text-muted max-w-md">
+        Sổ Thu giúp chủ tiệm nhỏ chốt sổ cuối ngày, đối chiếu tiền mặt và nhắc nợ khách — tất cả trên điện thoại, không cần máy tính.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#cta" class="btn btn-primary">Dùng thử miễn phí 14 ngày</a>
+        <a href="#tinh-nang" class="btn btn-ghost">Xem tính năng</a>
+      </div>
+    </div>
+    <div class="rounded-card border border-line bg-surface-alt p-8">
+      <p class="text-sm font-semibold text-muted">Chốt sổ hôm nay</p>
+      <dl class="mt-4 divide-y divide-line text-sm">
+        <div class="flex justify-between py-3"><dt class="text-muted">Tiền thu</dt><dd class="font-semibold">4.250.000đ</dd></div>
+        <div class="flex justify-between py-3"><dt class="text-muted">Tiền chi</dt><dd class="font-semibold">1.180.000đ</dd></div>
+        <div class="flex justify-between py-3"><dt class="text-muted">Còn lại trong quỹ</dt><dd class="font-semibold text-brand-600">3.070.000đ</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ LOGO KHÁCH HÀNG (bare — chưa style, tiết 3) ============ -->
+  <section aria-labelledby="khach-hang-title">
+    <h2 id="khach-hang-title">Hơn 1.200 tiệm đang dùng Sổ Thu mỗi ngày</h2>
+    <ul>
+      <li>Quán cơm Lan's — Q. Tân Bình</li>
+      <li>Tạp hoá Cô Ba — Biên Hoà</li>
+      <li>Bún bò Út Sáu — Q. 4</li>
+      <li>Tiệm tạp hoá 24h Minh Anh — Thủ Đức</li>
+    </ul>
+  </section>
+
+  <!-- ============ TÍNH NĂNG (bare) ============ -->
+  <section aria-labelledby="tinh-nang-title" id="tinh-nang">
+    <h2 id="tinh-nang-title">Bốn việc Sổ Thu làm thay bạn mỗi ngày</h2>
+    <ul>
+      <li>
+        <h3>Chốt sổ cuối ngày trong 1 phút</h3>
+        <p>Cộng tổng thu, chi và tiền mặt còn lại tự động, không cần cộng tay trên giấy.</p>
+      </li>
+      <li>
+        <h3>Chụp hoá đơn, tự nhận số tiền</h3>
+        <p>Chụp ảnh hoá đơn nhập hàng, Sổ Thu đọc số tiền và ngày tháng giúp bạn, chỉ cần xác nhận lại.</p>
+      </li>
+      <li>
+        <h3>Nhắc nợ khách qua Zalo tự động</h3>
+        <p>Đến hạn ghi nợ, Sổ Thu tự gửi tin nhắc qua Zalo cho khách, không cần bạn nhớ hay gọi điện.</p>
+      </li>
+      <li>
+        <h3>Báo cáo lãi lỗ theo tuần</h3>
+        <p>Xem ngay tuần này lãi hay lỗ, không cần gửi số liệu cho kế toán rồi chờ báo cáo.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ SỐ LIỆU (bare) ============ -->
+  <section aria-labelledby="so-lieu-title">
+    <h2 id="so-lieu-title">Sổ Thu đang được dùng như thế nào</h2>
+    <ul>
+      <li>1.200+ tiệm đang ghi sổ mỗi ngày</li>
+      <li>98% chủ tiệm chốt sổ dưới 5 phút</li>
+      <li>3,2 triệu giao dịch đã được ghi lại</li>
+      <li>4,8/5 sao đánh giá trên CH Play</li>
+    </ul>
+  </section>
+
+  <!-- ============ CẢM NHẬN (bare) ============ -->
+  <section aria-labelledby="cam-nhan-title">
+    <h2 id="cam-nhan-title">Chủ tiệm nói gì về Sổ Thu</h2>
+    <ul>
+      <li>
+        <blockquote>Trước đây tôi ghi sổ tay, cuối tháng cộng lại hay bị lệch. Giờ chốt sổ xong là biết ngay còn bao nhiêu trong quỹ.</blockquote>
+        <p>— Chị Lan, chủ quán cơm Lan's</p>
+      </li>
+      <li>
+        <blockquote>Cái tôi thích nhất là nhắc nợ tự động, không phải nhớ ai còn nợ ai đã trả.</blockquote>
+        <p>— Anh Sáu, chủ quán bún bò Út Sáu</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ BẢNG GIÁ (bare) ============ -->
+  <section aria-labelledby="bang-gia-title" id="bang-gia">
+    <h2 id="bang-gia-title">Bảng giá</h2>
+    <ul>
+      <li>
+        <h3>Miễn phí</h3>
+        <p>0đ/tháng — ghi sổ 1 tiệm, lưu 30 ngày gần nhất.</p>
+      </li>
+      <li>
+        <h3>Cơ bản</h3>
+        <p>79.000đ/tháng — 1 tiệm, lưu không giới hạn, nhắc nợ qua Zalo.</p>
+      </li>
+      <li>
+        <h3>Nhiều chi nhánh</h3>
+        <p>199.000đ/tháng — tối đa 5 tiệm, báo cáo gộp toàn hệ thống.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ CÂU HỎI THƯỜNG GẶP (bare) ============ -->
+  <section aria-labelledby="faq-title" id="faq">
+    <h2 id="faq-title">Câu hỏi thường gặp</h2>
+    <ul>
+      <li>
+        <h3>Sổ Thu có cần internet để dùng không?</h3>
+        <p>Không. Bạn vẫn ghi sổ được khi mất mạng, dữ liệu tự đồng bộ lại khi có internet.</p>
+      </li>
+      <li>
+        <h3>Đổi điện thoại thì dữ liệu có mất không?</h3>
+        <p>Không. Dữ liệu lưu trên tài khoản, đăng nhập lại ở máy mới là thấy đầy đủ.</p>
+      </li>
+      <li>
+        <h3>Có xuất được file cho kế toán không?</h3>
+        <p>Có. Xuất file Excel theo tháng, gửi thẳng cho kế toán hoặc cơ quan thuế khi cần.</p>
+      </li>
+      <li>
+        <h3>Dùng thử miễn phí trong bao lâu?</h3>
+        <p>14 ngày, đầy đủ tính năng của gói Cơ bản, không cần nhập thẻ thanh toán.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ CTA (bare) ============ -->
+  <section aria-labelledby="cta-title" id="cta">
+    <h2 id="cta-title">Bắt đầu ghi sổ hôm nay</h2>
+    <p>Không cần biết kế toán, không cần máy tính bàn. Chỉ cần điện thoại và 10 giây mỗi lần ghi.</p>
+    <a href="#main">Dùng thử miễn phí 14 ngày</a>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER (bare) ============ -->
+<footer aria-labelledby="footer-title">
+  <h2 id="footer-title">Sổ Thu</h2>
+  <p>SaaS ghi thu chi cho tiệm nhỏ. Đồ án môn Thực Hành Thiết Kế Web.</p>
+  <ul>
+    <li><a href="#tinh-nang">Tính năng</a></li>
+    <li><a href="#bang-gia">Bảng giá</a></li>
+    <li><a href="#faq">Câu hỏi thường gặp</a></li>
+  </ul>
+  <p>© 2026 Sổ Thu.</p>
+</footer>
+
+</body>
+</html>

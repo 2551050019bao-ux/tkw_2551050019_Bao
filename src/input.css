@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-600: #0f766e;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-surface: #f8fafc;
+  --color-line: #e2e8f0;
+  --font-display: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+  --radius-card: 0.875rem;
+}
