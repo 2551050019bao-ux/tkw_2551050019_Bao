@@ -1,206 +1,205 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><link rel="stylesheet" href="./dist/output.css">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sổ Thu — Ghi thu chi mỗi ngày trong 10 giây</title>
-<meta name="description" content="Sổ Thu là SaaS ghi thu chi cho tiệm nhỏ: chốt sổ cuối ngày trong 1 phút, không cần biết kế toán." />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- DEV/PREVIEW: dùng Tailwind Play CDN + assets/preview.css (bản CSS tay tương đương src/input.css)
-     vì môi trường build bài này không có mạng để chạy `npm run dev`.
-     Bản THẬT nộp bài là src/input.css — xem README mục "Cách chạy thật". -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: { 600: '#2f6f4f', 700: '#24573d' },
-          accent: { 500: '#e2a33b' },
-          ink: '#14211c',
-          muted: '#5b6b64',
-          surface: { DEFAULT: '#ffffff', alt: '#f4f7f5' },
-          line: '#dfe6e1',
-        },
-        fontFamily: {
-          display: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
-          body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        },
-        borderRadius: { card: '0.875rem' },
-      }
-    }
-  }
-</script>
-<link rel="stylesheet" href="assets/preview.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KernelSync - Giải pháp quản lý CPU Đa nhân</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Dùng tạm CDN để hiển thị ngay -->
 </head>
-<body class="font-body text-ink bg-surface">
+<body class="bg-white text-gray-900 font-sans">
 
-<a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
-
-<!-- ============ NAVBAR (đã style — tiết 4) ============ -->
-<header class="border-b border-line">
-  <nav class="section !py-4 flex items-center justify-between" aria-label="Điều hướng chính">
-    <a href="#main" class="font-display text-xl font-semibold">Sổ Thu</a>
-    <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <li><a href="#tinh-nang">Tính năng</a></li>
-      <li><a href="#bang-gia">Bảng giá</a></li>
-      <li><a href="#faq">Câu hỏi thường gặp</a></li>
-    </ul>
-    <a href="#cta" class="btn btn-primary">Dùng thử miễn phí</a>
-  </nav>
-</header>
-
-<main id="main">
-
-  <!-- ============ HERO (đã style — tiết 4) ============ -->
-  <section class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16" aria-labelledby="hero-title">
-    <div>
-      <h1 id="hero-title" class="font-display text-4xl sm:text-5xl font-semibold leading-[1.08] tracking-tight">
-        Ghi thu chi mỗi ngày trong 10 giây, không cần biết kế toán.
-      </h1>
-      <p class="mt-5 text-lg text-muted max-w-md">
-        Sổ Thu giúp chủ tiệm nhỏ chốt sổ cuối ngày, đối chiếu tiền mặt và nhắc nợ khách — tất cả trên điện thoại, không cần máy tính.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#cta" class="btn btn-primary">Dùng thử miễn phí 14 ngày</a>
-        <a href="#tinh-nang" class="btn btn-ghost">Xem tính năng</a>
+  <main id="main">
+    
+    <!-- 1. Hero Section (Kế thừa buổi 1) -->
+    <section aria-labelledby="hero-title" class="py-20 grid items-center gap-14 lg:grid-cols-2 lg:gap-16 mx-auto w-full max-w-6xl px-5">
+      <div>
+        <h1 id="hero-title" class="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl lg:text-6xl text-blue-900">
+          Tối ưu luồng xử lý cho máy chủ đa nhân.
+        </h1>
+        <p class="mt-4 max-w-2xl text-lg text-gray-600">
+          Phân bổ tài nguyên CPU tự động, theo dõi thuật toán lập lịch và xử lý triệt để tranh chấp vùng nhớ (critical sections) trên thời gian thực.
+        </p>
       </div>
+    </section>
+
+    <!-- 2. Dải Logo Khách Hàng (Tự xuống dòng với flex-wrap) -->
+    <section class="py-20 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto w-full max-w-6xl px-5">
+        <p class="text-center text-sm font-semibold text-gray-500 mb-8">ĐƯỢC TIN DÙNG BỞI CÁC HỆ THỐNG LỚN</p>
+        <ul class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+          <li class="text-2xl font-bold text-gray-300">SERVER-PRO</li>
+          <li class="text-2xl font-bold text-gray-300">CLOUDNET</li>
+          <li class="text-2xl font-bold text-gray-300">DATACENTER+</li>
+          <li class="text-2xl font-bold text-gray-300">KERNEL-X</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Lưới Tính Năng (Chia đều 3 cột) -->
+    <section class="py-20">
+      <div class="mx-auto w-full max-w-6xl px-5">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl font-extrabold text-blue-900">Tính năng cốt lõi</h2>
+        </div>
+        
+        <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Tính năng 1 -->
+          <li class="p-6 rounded-2xl bg-gray-50">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
+              <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </span>
+            <h3 class="mt-4 text-xl font-bold">Chia tải thông minh</h3>
+            <p class="mt-2 text-gray-600">Cân bằng khối lượng công việc trên từng nhân CPU, tránh tình trạng quá tải cục bộ.</p>
+          </li>
+          <!-- Tính năng 2 -->
+          <li class="p-6 rounded-2xl bg-gray-50">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
+              <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </span>
+            <h3 class="mt-4 text-xl font-bold">Quản lý Critical Section</h3>
+            <p class="mt-2 text-gray-600">Ngăn chặn triệt để hiện tượng tranh chấp vùng nhớ bằng thuật toán khóa (lock) tối ưu.</p>
+          </li>
+          <!-- Tính năng 3 -->
+          <li class="p-6 rounded-2xl bg-gray-50">
+            <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
+              <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            </span>
+            <h3 class="mt-4 text-xl font-bold">Lập lịch thời gian thực</h3>
+            <p class="mt-2 text-gray-600">Theo dõi và điều chỉnh thuật toán lập lịch ngay lập tức dựa trên thông số hệ thống.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Cảm nhận và Số liệu (Dùng đúng thẻ ngữ nghĩa) -->
+    <section class="py-20 bg-blue-900 text-white">
+      <div class="mx-auto w-full max-w-6xl px-5 grid gap-12 lg:grid-cols-2 items-center">
+        <!-- Cảm nhận -->
+        <figure>
+          <blockquote class="text-2xl font-bold leading-snug">
+            "Từ khi chuyển sang KernelSync, độ trễ xử lý đa luồng giảm hẳn 40%. Đội ngũ không còn phải canh cánh lo sập server lúc cao điểm nữa."
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-4">
+            <div class="h-12 w-12 rounded-full bg-blue-500"></div>
+            <div>
+              <span class="block font-bold">Võ Việt Khoa</span>
+              <cite class="text-sm text-blue-200 not-italic">Trưởng nhóm Hạ tầng, DataTech</cite>
+            </div>
+          </figcaption>
+        </figure>
+        
+        <!-- Số liệu (Đảo giá trị lên trên bằng order-2) -->
+        <dl class="flex divide-x divide-blue-700 bg-blue-800 rounded-2xl py-8">
+          <div class="text-center px-6 flex-1 flex flex-col">
+            <dt class="order-2 mt-2 text-sm text-blue-200">Server đang tối ưu</dt>
+            <dd class="text-4xl font-extrabold">2,400+</dd>
+          </div>
+          <div class="text-center px-6 flex-1 flex flex-col">
+            <dt class="order-2 mt-2 text-sm text-blue-200">Lỗi tranh chấp giảm</dt>
+            <dd class="text-4xl font-extrabold">99.9%</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 5. Bảng giá (Thử thách khó nhất: Thẻ cao bằng nhau, nút nằm đáy) -->
+    <section class="py-20 bg-gray-50">
+      <div class="mx-auto w-full max-w-6xl px-5">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-3xl font-extrabold text-blue-900">Chi phí linh hoạt</h2>
+        </div>
+        
+        <ul class="grid items-stretch gap-8 lg:grid-cols-3">
+          <!-- Gói Cơ bản -->
+          <li class="flex h-full flex-col p-8 rounded-2xl bg-white border border-gray-200">
+            <h3 class="text-xl font-bold">Gói Cơ Bản</h3>
+            <p class="mt-4 text-4xl font-extrabold">$29<span class="text-lg text-gray-500 font-normal">/tháng</span></p>
+            <ul class="mt-6 space-y-4 mb-8">
+              <li class="flex gap-2">✓ Quản lý tối đa 4 node</li>
+              <li class="flex gap-2">✓ Lập lịch tự động</li>
+            </ul>
+            <!-- mt-auto ép nút xuống đáy -->
+            <a href="#" class="mt-auto block w-full py-3 px-4 bg-gray-100 text-center font-bold rounded-lg hover:bg-gray-200">Bắt đầu ngay</a>
+          </li>
+
+          <!-- Gói Chuyên nghiệp (Nổi bật) -->
+          <li class="relative flex h-full flex-col p-8 rounded-2xl bg-white ring-2 ring-blue-600 shadow-xl">
+            <!-- Huy hiệu dùng absolute -->
+            <span class="absolute -top-3 left-8 bg-blue-600 text-white px-3 py-1 text-xs font-bold rounded-full">Được chọn nhiều nhất</span>
+            <h3 class="text-xl font-bold text-blue-600">Gói Chuyên Nghiệp</h3>
+            <p class="mt-4 text-4xl font-extrabold">$99<span class="text-lg text-gray-500 font-normal">/tháng</span></p>
+            <ul class="mt-6 space-y-4 mb-8">
+              <li class="flex gap-2">✓ Quản lý không giới hạn node</li>
+              <li class="flex gap-2">✓ Thuật toán lock chuyên sâu</li>
+              <li class="flex gap-2">✓ Hỗ trợ 24/7</li>
+            </ul>
+            <a href="#" class="mt-auto block w-full py-3 px-4 bg-blue-600 text-white text-center font-bold rounded-lg hover:bg-blue-700">Dùng thử 14 ngày</a>
+          </li>
+
+          <!-- Gói Doanh nghiệp -->
+          <li class="flex h-full flex-col p-8 rounded-2xl bg-white border border-gray-200">
+            <h3 class="text-xl font-bold">Gói Doanh Nghiệp</h3>
+            <p class="mt-4 text-4xl font-extrabold">Tùy biến</p>
+            <ul class="mt-6 space-y-4 mb-8">
+              <li class="flex gap-2">✓ Cài đặt on-premise</li>
+              <li class="flex gap-2">✓ Tích hợp hệ thống nội bộ</li>
+            </ul>
+            <a href="#" class="mt-auto block w-full py-3 px-4 bg-gray-100 text-center font-bold rounded-lg hover:bg-gray-200">Liên hệ bộ phận Sales</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. FAQ (Lưới bất đối xứng) -->
+    <section class="py-20">
+      <div class="mx-auto w-full max-w-6xl px-5 grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+          <h2 class="text-3xl font-extrabold text-blue-900">Câu hỏi thường gặp</h2>
+          <p class="mt-4 text-gray-600">Không tìm thấy câu trả lời bạn cần? Vui lòng liên hệ đội ngũ hỗ trợ.</p>
+        </div>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="text-lg font-bold">Tích hợp vào hệ thống cũ có mất nhiều thời gian không?</h3>
+            <p class="mt-2 text-gray-600">Không. Quá trình thiết lập ban đầu chỉ mất chưa tới 30 phút và tương thích ngược với hầu hết các hạ tầng hiện hữu.</p>
+          </li>
+          <li>
+            <h3 class="text-lg font-bold">Hệ thống có cảnh báo khi quá tải không?</h3>
+            <p class="mt-2 text-gray-600">Có. Bạn có thể thiết lập cảnh báo tự động qua email hoặc Slack khi CPU hoặc RAM vượt ngưỡng an toàn.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-20 border-t border-gray-800">
+    <div class="mx-auto w-full max-w-6xl px-5 grid gap-12 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <h2 class="text-xl font-bold">KernelSync Inc.</h2>
+        <p class="mt-4 max-w-sm text-gray-400">Cung cấp công cụ tối ưu hóa hạ tầng máy chủ mạnh mẽ, giúp đội ngũ kỹ sư làm việc hiệu quả hơn.</p>
+      </div>
+      <nav aria-labelledby="footer-product">
+        <h3 id="footer-product" class="font-bold text-gray-300 tracking-wider">Sản phẩm</h3>
+        <ul class="mt-4 space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-white">Tính năng</a></li>
+          <li><a href="#" class="hover:text-white">Bảng giá</a></li>
+          <li><a href="#" class="hover:text-white">Tài liệu API</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="footer-support">
+        <h3 id="footer-support" class="font-bold text-gray-300 tracking-wider">Hỗ trợ</h3>
+        <ul class="mt-4 space-y-3 text-gray-400">
+          <li><a href="#" class="hover:text-white">Trung tâm trợ giúp</a></li>
+          <li><a href="#" class="hover:text-white">Trạng thái hệ thống</a></li>
+          <li><a href="#" class="hover:text-white">Liên hệ</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="rounded-card border border-line bg-surface-alt p-8">
-      <p class="text-sm font-semibold text-muted">Chốt sổ hôm nay</p>
-      <dl class="mt-4 divide-y divide-line text-sm">
-        <div class="flex justify-between py-3"><dt class="text-muted">Tiền thu</dt><dd class="font-semibold">4.250.000đ</dd></div>
-        <div class="flex justify-between py-3"><dt class="text-muted">Tiền chi</dt><dd class="font-semibold">1.180.000đ</dd></div>
-        <div class="flex justify-between py-3"><dt class="text-muted">Còn lại trong quỹ</dt><dd class="font-semibold text-brand-600">3.070.000đ</dd></div>
-      </dl>
+    <div class="mx-auto w-full max-w-6xl px-5 mt-16 pt-8 border-t border-gray-800 text-center text-gray-500">
+      <p>© 2026 KernelSync Inc. Đã đăng ký bản quyền.</p>
     </div>
-  </section>
-
-  <!-- ============ LOGO KHÁCH HÀNG (bare — chưa style, tiết 3) ============ -->
-  <section aria-labelledby="khach-hang-title">
-    <h2 id="khach-hang-title">Hơn 1.200 tiệm đang dùng Sổ Thu mỗi ngày</h2>
-    <ul>
-      <li>Quán cơm Lan's — Q. Tân Bình</li>
-      <li>Tạp hoá Cô Ba — Biên Hoà</li>
-      <li>Bún bò Út Sáu — Q. 4</li>
-      <li>Tiệm tạp hoá 24h Minh Anh — Thủ Đức</li>
-    </ul>
-  </section>
-
-  <!-- ============ TÍNH NĂNG (bare) ============ -->
-  <section aria-labelledby="tinh-nang-title" id="tinh-nang">
-    <h2 id="tinh-nang-title">Bốn việc Sổ Thu làm thay bạn mỗi ngày</h2>
-    <ul>
-      <li>
-        <h3>Chốt sổ cuối ngày trong 1 phút</h3>
-        <p>Cộng tổng thu, chi và tiền mặt còn lại tự động, không cần cộng tay trên giấy.</p>
-      </li>
-      <li>
-        <h3>Chụp hoá đơn, tự nhận số tiền</h3>
-        <p>Chụp ảnh hoá đơn nhập hàng, Sổ Thu đọc số tiền và ngày tháng giúp bạn, chỉ cần xác nhận lại.</p>
-      </li>
-      <li>
-        <h3>Nhắc nợ khách qua Zalo tự động</h3>
-        <p>Đến hạn ghi nợ, Sổ Thu tự gửi tin nhắc qua Zalo cho khách, không cần bạn nhớ hay gọi điện.</p>
-      </li>
-      <li>
-        <h3>Báo cáo lãi lỗ theo tuần</h3>
-        <p>Xem ngay tuần này lãi hay lỗ, không cần gửi số liệu cho kế toán rồi chờ báo cáo.</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============ SỐ LIỆU (bare) ============ -->
-  <section aria-labelledby="so-lieu-title">
-    <h2 id="so-lieu-title">Sổ Thu đang được dùng như thế nào</h2>
-    <ul>
-      <li>1.200+ tiệm đang ghi sổ mỗi ngày</li>
-      <li>98% chủ tiệm chốt sổ dưới 5 phút</li>
-      <li>3,2 triệu giao dịch đã được ghi lại</li>
-      <li>4,8/5 sao đánh giá trên CH Play</li>
-    </ul>
-  </section>
-
-  <!-- ============ CẢM NHẬN (bare) ============ -->
-  <section aria-labelledby="cam-nhan-title">
-    <h2 id="cam-nhan-title">Chủ tiệm nói gì về Sổ Thu</h2>
-    <ul>
-      <li>
-        <blockquote>Trước đây tôi ghi sổ tay, cuối tháng cộng lại hay bị lệch. Giờ chốt sổ xong là biết ngay còn bao nhiêu trong quỹ.</blockquote>
-        <p>— Chị Lan, chủ quán cơm Lan's</p>
-      </li>
-      <li>
-        <blockquote>Cái tôi thích nhất là nhắc nợ tự động, không phải nhớ ai còn nợ ai đã trả.</blockquote>
-        <p>— Anh Sáu, chủ quán bún bò Út Sáu</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============ BẢNG GIÁ (bare) ============ -->
-  <section aria-labelledby="bang-gia-title" id="bang-gia">
-    <h2 id="bang-gia-title">Bảng giá</h2>
-    <ul>
-      <li>
-        <h3>Miễn phí</h3>
-        <p>0đ/tháng — ghi sổ 1 tiệm, lưu 30 ngày gần nhất.</p>
-      </li>
-      <li>
-        <h3>Cơ bản</h3>
-        <p>79.000đ/tháng — 1 tiệm, lưu không giới hạn, nhắc nợ qua Zalo.</p>
-      </li>
-      <li>
-        <h3>Nhiều chi nhánh</h3>
-        <p>199.000đ/tháng — tối đa 5 tiệm, báo cáo gộp toàn hệ thống.</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============ CÂU HỎI THƯỜNG GẶP (bare) ============ -->
-  <section aria-labelledby="faq-title" id="faq">
-    <h2 id="faq-title">Câu hỏi thường gặp</h2>
-    <ul>
-      <li>
-        <h3>Sổ Thu có cần internet để dùng không?</h3>
-        <p>Không. Bạn vẫn ghi sổ được khi mất mạng, dữ liệu tự đồng bộ lại khi có internet.</p>
-      </li>
-      <li>
-        <h3>Đổi điện thoại thì dữ liệu có mất không?</h3>
-        <p>Không. Dữ liệu lưu trên tài khoản, đăng nhập lại ở máy mới là thấy đầy đủ.</p>
-      </li>
-      <li>
-        <h3>Có xuất được file cho kế toán không?</h3>
-        <p>Có. Xuất file Excel theo tháng, gửi thẳng cho kế toán hoặc cơ quan thuế khi cần.</p>
-      </li>
-      <li>
-        <h3>Dùng thử miễn phí trong bao lâu?</h3>
-        <p>14 ngày, đầy đủ tính năng của gói Cơ bản, không cần nhập thẻ thanh toán.</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============ CTA (bare) ============ -->
-  <section aria-labelledby="cta-title" id="cta">
-    <h2 id="cta-title">Bắt đầu ghi sổ hôm nay</h2>
-    <p>Không cần biết kế toán, không cần máy tính bàn. Chỉ cần điện thoại và 10 giây mỗi lần ghi.</p>
-    <a href="#main">Dùng thử miễn phí 14 ngày</a>
-  </section>
-
-</main>
-
-<!-- ============ FOOTER (bare) ============ -->
-<footer aria-labelledby="footer-title">
-  <h2 id="footer-title">Sổ Thu</h2>
-  <p>SaaS ghi thu chi cho tiệm nhỏ. Đồ án môn Thực Hành Thiết Kế Web.</p>
-  <ul>
-    <li><a href="#tinh-nang">Tính năng</a></li>
-    <li><a href="#bang-gia">Bảng giá</a></li>
-    <li><a href="#faq">Câu hỏi thường gặp</a></li>
-  </ul>
-  <p>© 2026 Sổ Thu.</p>
-</footer>
+  </footer>
 
 </body>
 </html>
