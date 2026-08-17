@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KernelSync - Giải pháp quản lý CPU Đa nhân</title>
   <script src="https://cdn.tailwindcss.com"></script> <!-- Dùng tạm CDN để hiển thị ngay -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", dark);
+    })();
+  </script>
 </head>
 <body class="bg-white text-gray-900 font-sans">
 
@@ -200,6 +207,6 @@
       <p>© 2026 KernelSync Inc. Đã đăng ký bản quyền.</p>
     </div>
   </footer>
-
+<script type="module" src="./js/main.js"></script>
 </body>
 </html>
