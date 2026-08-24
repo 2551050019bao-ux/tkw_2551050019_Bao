@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KernelSync - Giải pháp quản lý CPU Đa nhân</title>
-  <script src="https://cdn.tailwindcss.com"></script> <!-- Dùng tạm CDN để hiển thị ngay -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     (function () {
       const saved = localStorage.getItem("theme");
@@ -17,7 +17,7 @@
 
   <main id="main">
     
-    <!-- 1. Hero Section (Kế thừa buổi 1) -->
+    <!-- 1. Hero Section -->
     <section aria-labelledby="hero-title" class="py-20 grid items-center gap-14 lg:grid-cols-2 lg:gap-16 mx-auto w-full max-w-6xl px-5">
       <div>
         <h1 id="hero-title" class="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl lg:text-6xl text-blue-900">
@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <!-- 2. Dải Logo Khách Hàng (Tự xuống dòng với flex-wrap) -->
+    <!-- 2. Dải Logo Khách Hàng -->
     <section class="py-20 bg-gray-50 border-y border-gray-100">
       <div class="mx-auto w-full max-w-6xl px-5">
         <p class="text-center text-sm font-semibold text-gray-500 mb-8">ĐƯỢC TIN DÙNG BỞI CÁC HỆ THỐNG LỚN</p>
@@ -42,7 +42,7 @@
       </div>
     </section>
 
-    <!-- 3. Lưới Tính Năng (Chia đều 3 cột) -->
+    <!-- 3. Lưới Tính Năng -->
     <section class="py-20">
       <div class="mx-auto w-full max-w-6xl px-5">
         <div class="text-center max-w-2xl mx-auto">
@@ -50,7 +50,6 @@
         </div>
         
         <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Tính năng 1 -->
           <li class="p-6 rounded-2xl bg-gray-50">
             <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
               <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -58,7 +57,6 @@
             <h3 class="mt-4 text-xl font-bold">Chia tải thông minh</h3>
             <p class="mt-2 text-gray-600">Cân bằng khối lượng công việc trên từng nhân CPU, tránh tình trạng quá tải cục bộ.</p>
           </li>
-          <!-- Tính năng 2 -->
           <li class="p-6 rounded-2xl bg-gray-50">
             <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
               <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
@@ -66,7 +64,6 @@
             <h3 class="mt-4 text-xl font-bold">Quản lý Critical Section</h3>
             <p class="mt-2 text-gray-600">Ngăn chặn triệt để hiện tượng tranh chấp vùng nhớ bằng thuật toán khóa (lock) tối ưu.</p>
           </li>
-          <!-- Tính năng 3 -->
           <li class="p-6 rounded-2xl bg-gray-50">
             <span class="grid h-11 w-11 place-items-center rounded-lg bg-blue-100 text-blue-600">
               <svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
@@ -78,10 +75,9 @@
       </div>
     </section>
 
-    <!-- 4. Cảm nhận và Số liệu (Dùng đúng thẻ ngữ nghĩa) -->
+    <!-- 4. Cảm nhận và Số liệu -->
     <section class="py-20 bg-blue-900 text-white">
       <div class="mx-auto w-full max-w-6xl px-5 grid gap-12 lg:grid-cols-2 items-center">
-        <!-- Cảm nhận -->
         <figure>
           <blockquote class="text-2xl font-bold leading-snug">
             "Từ khi chuyển sang KernelSync, độ trễ xử lý đa luồng giảm hẳn 40%. Đội ngũ không còn phải canh cánh lo sập server lúc cao điểm nữa."
@@ -95,7 +91,6 @@
           </figcaption>
         </figure>
         
-        <!-- Số liệu (Đảo giá trị lên trên bằng order-2) -->
         <dl class="flex divide-x divide-blue-700 bg-blue-800 rounded-2xl py-8">
           <div class="text-center px-6 flex-1 flex flex-col">
             <dt class="order-2 mt-2 text-sm text-blue-200">Server đang tối ưu</dt>
@@ -109,7 +104,7 @@
       </div>
     </section>
 
-    <!-- 5. Bảng giá (Thử thách khó nhất: Thẻ cao bằng nhau, nút nằm đáy) -->
+    <!-- 5. Bảng giá -->
     <section class="py-20 bg-gray-50">
       <div class="mx-auto w-full max-w-6xl px-5">
         <div class="text-center max-w-2xl mx-auto mb-16">
@@ -117,7 +112,6 @@
         </div>
         
         <ul class="grid items-stretch gap-8 lg:grid-cols-3">
-          <!-- Gói Cơ bản -->
           <li class="flex h-full flex-col p-8 rounded-2xl bg-white border border-gray-200">
             <h3 class="text-xl font-bold">Gói Cơ Bản</h3>
             <p class="mt-4 text-4xl font-extrabold">$29<span class="text-lg text-gray-500 font-normal">/tháng</span></p>
@@ -125,13 +119,10 @@
               <li class="flex gap-2">✓ Quản lý tối đa 4 node</li>
               <li class="flex gap-2">✓ Lập lịch tự động</li>
             </ul>
-            <!-- mt-auto ép nút xuống đáy -->
             <a href="#" class="mt-auto block w-full py-3 px-4 bg-gray-100 text-center font-bold rounded-lg hover:bg-gray-200">Bắt đầu ngay</a>
           </li>
 
-          <!-- Gói Chuyên nghiệp (Nổi bật) -->
           <li class="relative flex h-full flex-col p-8 rounded-2xl bg-white ring-2 ring-blue-600 shadow-xl">
-            <!-- Huy hiệu dùng absolute -->
             <span class="absolute -top-3 left-8 bg-blue-600 text-white px-3 py-1 text-xs font-bold rounded-full">Được chọn nhiều nhất</span>
             <h3 class="text-xl font-bold text-blue-600">Gói Chuyên Nghiệp</h3>
             <p class="mt-4 text-4xl font-extrabold">$99<span class="text-lg text-gray-500 font-normal">/tháng</span></p>
@@ -143,7 +134,6 @@
             <a href="#" class="mt-auto block w-full py-3 px-4 bg-blue-600 text-white text-center font-bold rounded-lg hover:bg-blue-700">Dùng thử 14 ngày</a>
           </li>
 
-          <!-- Gói Doanh nghiệp -->
           <li class="flex h-full flex-col p-8 rounded-2xl bg-white border border-gray-200">
             <h3 class="text-xl font-bold">Gói Doanh Nghiệp</h3>
             <p class="mt-4 text-4xl font-extrabold">Tùy biến</p>
@@ -157,7 +147,7 @@
       </div>
     </section>
 
-    <!-- 6. FAQ (Lưới bất đối xứng) -->
+    <!-- 6. FAQ -->
     <section class="py-20">
       <div class="mx-auto w-full max-w-6xl px-5 grid gap-12 lg:grid-cols-[1fr_1.4fr]">
         <div>
@@ -177,7 +167,64 @@
       </div>
     </section>
 
+    <!-- 7. Khu vực hiển thị Bảng Dữ Liệu & Bộ lọc Buổi 5 -->
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+      <div class="mx-auto w-full max-w-6xl px-5">
+        <h2 class="text-3xl font-extrabold text-blue-900 mb-6">Quản lý giao dịch (Buổi 5)</h2>
+
+        <!-- Thanh Tìm kiếm và Bộ lọc -->
+        <div class="mb-6 flex flex-wrap gap-4 items-center justify-between">
+          <input 
+            type="search" 
+            id="search-input" 
+            placeholder="Tìm theo tên thương lái..." 
+            class="p-2 border border-gray-300 rounded-lg w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <div class="flex gap-4">
+            <select id="category-select" class="p-2 border border-gray-300 rounded-lg bg-white">
+              <option value="all">Tất cả loại</option>
+              <option value="Xoài">Xoài</option>
+              <option value="Sầu riêng">Sầu riêng</option>
+            </select>
+
+            <select id="status-select" class="p-2 border border-gray-300 rounded-lg bg-white">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="da-chot">Đã chốt</option>
+              <option value="cho-chot">Chờ chốt</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Thông báo Trạng thái -->
+        <div id="loading-state" class="py-4 font-semibold text-blue-600">Đang tải dữ liệu...</div>
+        <div id="error-state" class="py-4 font-semibold text-red-600" style="display: none;"></div>
+        <div id="empty-state" class="py-4 text-gray-500" style="display: none;">Không tìm thấy bản ghi nào.</div>
+
+        <!-- Bảng hiển thị danh sách -->
+        <div class="overflow-x-auto mt-4 bg-white rounded-xl shadow-sm border border-gray-200">
+          <table id="records-table" class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-gray-100 border-b border-gray-200 text-gray-700">
+                <th class="p-4 font-bold">Thương lái</th>
+                <th class="p-4 font-bold">Số tiền</th>
+              </tr>
+            </thead>
+            <tbody id="records-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- Template dùng cho Render dòng an toàn chống XSS -->
+  <template id="row-template">
+    <tr class="border-b border-gray-100 hover:bg-gray-50">
+      <td class="p-4" data-cell="trader"></td>
+      <td class="p-4 font-semibold text-green-700" data-cell="amount"></td>
+    </tr>
+  </template>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-20 border-t border-gray-800">
@@ -207,6 +254,7 @@
       <p>© 2026 KernelSync Inc. Đã đăng ký bản quyền.</p>
     </div>
   </footer>
-<script type="module" src="./js/main.js"></script>
+
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
